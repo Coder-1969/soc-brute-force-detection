@@ -63,3 +63,21 @@ Refer to:
 ---
 
 ## 📁 Project Structure
+
+
+
+---
+
+## 💡 Skills Demonstrated
+- SIEM (Splunk) log analysis  
+- Alert triage and investigation  
+- Authentication log analysis  
+- Threat detection  
+- MITRE ATT&CK mapping  
+- Incident reporting  
+
+---
+
+## 🔗 Author
+[Sahil Pathak]  
+Aspiring SOC Analyst | Cyber Security Graduate
