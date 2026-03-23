@@ -59,3 +59,21 @@ index="linux-alert" "Failed password" OR "Authentication failure"
 | stats count by src_ip user
 ```
 
+### 🧠 Explanation
+
+This query:
+
+- Aggregates failed authentication events
+
+- Groups results by source IP and username
+
+- Highlights which IP is generating the most login failures
+
+### 📊 Outcome
+
+- Identified source IP responsible for majority of failed attempts
+
+- Revealed targeted usernames
+
+- Confirmed concentration of attack activity from a single source
+
