@@ -129,5 +129,6 @@ soc-brute-force-detection/
 
 ## 👤 Author
 
-Sahil Pathak
+Sahil Pathak 
+
 Aspiring SOC Analyst | Cyber Security Graduate
