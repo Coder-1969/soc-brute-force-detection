@@ -111,3 +111,23 @@ soc-brute-force-detection/
 │   ├── authentication_activity.png
 │   ├── failed_login_pattern.png
 │   └── targeted_users_analysis.png
+```
+---
+## 💡 Skills Demonstrated
+
+- SIEM-based alert triage
+
+- Linux log analysis
+
+- SSH brute-force detection
+
+- Splunk query development
+
+- MITRE ATT&CK mapping
+
+- SOC investigation reporting
+
+## 👤 Author
+
+Sahil Pathak
+Aspiring SOC Analyst | Cyber Security Graduate
