@@ -77,3 +77,38 @@ This query:
 
 - Confirmed concentration of attack activity from a single source
 
+## 3️⃣ Identify Most Targeted User Accounts
+
+### 🎯 Purpose
+To extract usernames from failed login events and determine which accounts were most frequently targeted, along with attack duration.
+
+### 🔎 Query
+```spl
+index="linux-alert" sourcetype="linux_secure" 10.10.242.248 "Failed password for"
+| rex field=_raw "Failed password for(?: invalid user)? (?<username>\S+)"
+| stats earliest(_time) as start latest(_time) as end count by username
+| eval duration_minutes=round((end-start)/60,0)
+| table username count duration_minutes
+| sort - count
+```
+### 🧠 Explanation
+
+This query:
+
+- Extracts usernames using regex (rex)
+
+- Counts failed login attempts per user
+
+- Calculates the duration of attack activity
+
+- Displays results in a structured format
+
+### 📊 Outcome
+
+- Multiple user accounts targeted
+
+- Certain usernames experienced significantly higher attack frequency
+
+- Attack duration varied across accounts
+
+- Indicates automated brute-force attempts with possible username enumeration
