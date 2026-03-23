@@ -112,3 +112,37 @@ This query:
 - Attack duration varied across accounts
 
 - Indicates automated brute-force attempts with possible username enumeration
+
+### ⚔️ Investigation Conclusion
+
+- The combined results from all queries confirm:
+
+- High volume of failed SSH authentication attempts
+
+- Repeated targeting of multiple user accounts
+
+- Consistent attack activity from source IP 10.10.242.248
+
+- Evidence of automated brute-force behavior
+
+- This activity is consistent with a brute-force SSH attack.
+
+### 🧠 MITRE ATT&CK Mapping
+
+- T1110 — Brute Force
+
+- T1021.004 — Remote Services: SSH
+
+### 💡 Skills Demonstrated
+
+- SIEM-based log analysis using Splunk
+
+-SSH authentication log investigation
+
+- Regex field extraction (rex)
+
+- Event aggregation and correlation
+
+- Detection of brute-force attack patterns
+
+- SOC investigation and reporting methodology
