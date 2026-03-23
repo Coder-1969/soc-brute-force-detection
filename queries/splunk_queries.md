@@ -26,6 +26,28 @@ index="linux-alert" sourcetype="linux_secure" 10.10.242.248
 | search "Accepted password for" OR "Failed password for" OR "Invalid user"
 | sort + _time
 ```
+### 🧠 Explanation
+
+- This query filters Linux authentication logs to display:
+
+- Successful logins (Accepted password)
+
+- Failed login attempts (Failed password)
+
+- Invalid username attempts (Invalid user)
+
+- Sorting events chronologically allows reconstruction of attacker behavior.
+
+### 📊 Outcome
+
+- Multiple failed login attempts observed
+
+- Invalid user attempts indicate username enumeration
+
+- Continuous sequence of authentication activity detected
+
+- Suggests automated brute-force behavior
+
 ## 2️⃣ Identify Source IP and Targeted Accounts
 
 ### 🎯 Purpose
