@@ -25,3 +25,15 @@ To retrieve all authentication-related events (successful, failed, and invalid u
 index="linux-alert" sourcetype="linux_secure" 10.10.242.248
 | search "Accepted password for" OR "Failed password for" OR "Invalid user"
 | sort + _time
+```
+## 2️⃣ Identify Source IP and Targeted Accounts
+
+### 🎯 Purpose
+To identify which source IPs and user accounts are involved in failed authentication attempts.
+
+### 🔎 Query
+```spl
+index="linux-alert" "Failed password" OR "Authentication failure"
+| stats count by src_ip user
+```
+
