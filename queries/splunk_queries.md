@@ -1,28 +1,27 @@
-# 🔍 Splunk Queries — Brute Force Investigation
+# 🔍 Splunk Queries — Brute Force SSH Investigation (Linux)
+
+This document contains the Splunk SPL queries used to investigate a suspected brute-force SSH attack on a Linux system.
 
 ---
 
-## 1. Detect Failed Login Attempts
+## 🧠 Investigation Context
 
-### Purpose
-Identify multiple failed login attempts which may indicate brute-force activity.
+- Target System: Linux Host  
+- Log Source: `linux_secure`  
+- Index: `linux-alert`  
+- Suspicious IP: `10.10.242.248`  
 
-### Query
-index="linux-alert" sourcetype="linux_secure" 10.10.242.248 
+The investigation focused on detecting repeated SSH authentication attempts and identifying attack patterns.
+
+---
+
+## 1️⃣ Detect SSH Authentication Activity (Timeline Analysis)
+
+### 🎯 Purpose
+To retrieve all authentication-related events (successful, failed, and invalid user attempts) from the suspicious IP address and build a timeline of attacker activity.
+
+### 🔎 Query
+```spl
+index="linux-alert" sourcetype="linux_secure" 10.10.242.248
 | search "Accepted password for" OR "Failed password for" OR "Invalid user"
 | sort + _time
-
----
-
-## 2. Identify Top users attacked
-
-### Purpose
-This query retrieves failed login events and groups them by user and count to identify repeated login failures on each user
-
-### Query
-index="linux-alert" sourcetype="linux_secure" 10.10.242.248 "Failed password for"
-| rex field=_raw "Failed password for(?: invalid user)? (?<username>\S+)"
-| stats earliest(_time) as start latest(_time) as end count by username
-| eval duration_minutes=round((end-start)/60,0)
-| table username count duration_minutes
-| sort - count
